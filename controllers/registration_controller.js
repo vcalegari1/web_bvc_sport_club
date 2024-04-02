@@ -3,8 +3,8 @@ const Registration = require('../models/registration');
 exports.register = (req, res) => {
     const data = req.body;
     const fee = calculateFee(data.status);
-    const registration = new Registration(fee);
-
+    const registration = new Registration(data.userID, data.fullName, data.address, data.status, fee);
+    console.log(registration)
     res.json(registration); 
 };
 
